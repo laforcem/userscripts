@@ -10,9 +10,9 @@
 // @grant        none
 // @run-at       document-start
 // @license      MIT
-// @namespace https://greasyfork.org/users/1101475
-// @downloadURL https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/old-reddit-redirect.user.js
-// @updateURL https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/old-reddit-redirect.user.js
+// @namespace https://github.com/laforcem/userscripts
+// @downloadURL https://raw.githubusercontent.com/laforcem/userscripts/main/old-reddit-redirect.user.js
+// @updateURL https://raw.githubusercontent.com/laforcem/userscripts/main/old-reddit-redirect.user.js
 // ==/UserScript==
 
 const use_optimization = true;

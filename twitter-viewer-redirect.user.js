@@ -7,9 +7,9 @@
 // @match        *://x.com/*
 // @match        *://www.x.com/*
 // @grant        none
-// @namespace    https://github.com/laforcem/dotfiles
-// @downloadURL  https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/twitter-viewer-redirect.user.js
-// @updateURL    https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/twitter-viewer-redirect.user.js
+// @namespace    https://github.com/laforcem/userscripts
+// @downloadURL  https://raw.githubusercontent.com/laforcem/userscripts/main/twitter-viewer-redirect.user.js
+// @updateURL    https://raw.githubusercontent.com/laforcem/userscripts/main/twitter-viewer-redirect.user.js
 // ==/UserScript==
 
 (function() {
