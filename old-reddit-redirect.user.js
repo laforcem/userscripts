@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Old Reddit Redirect
-// @version      1.1
+// @version      1.1.1
 // @description  Converts reddit.com links to old.reddit.com, but handles /s/ shortlinks correctly
 // @author       idk
 // @match        *://*.reddit.com/*
@@ -11,8 +11,8 @@
 // @run-at       document-start
 // @license      MIT
 // @namespace https://greasyfork.org/users/1101475
-// @downloadURL https://update.greasyfork.org/scripts/479271/Old%20Reddit%20Redirect.user.js
-// @updateURL https://update.greasyfork.org/scripts/479271/Old%20Reddit%20Redirect.meta.js
+// @downloadURL https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/old-reddit-redirect.user.js
+// @updateURL https://raw.githubusercontent.com/laforcem/dotfiles/main/home/dot_config/userscripts/old-reddit-redirect.user.js
 // ==/UserScript==
 
 const use_optimization = true;
