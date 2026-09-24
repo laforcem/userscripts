@@ -1,12 +1,13 @@
 // ==UserScript==
 // @name         Old Reddit Redirect
-// @version      1.1.1
-// @description  Converts reddit.com links to old.reddit.com, but handles /s/ shortlinks correctly
+// @version      1.1.2
+// @description  Converts reddit.com links to old.reddit.com, but handles /s/ shortlinks and unsupported pages correctly
 // @author       idk
 // @match        *://*.reddit.com/*
 // @exclude      *://www.reddit.com/poll/*
 // @exclude      *://i.redd.it/*
 // @exclude      *://www.reddit.com/media*
+// @exclude      *://www.reddit.com/message/compose*
 // @grant        none
 // @run-at       document-start
 // @license      MIT
@@ -27,15 +28,25 @@ function isShortLink(url) {
     return url.match(/\/r\/[^\/]+\/s\/[^\/]+/);
 }
 
+// These pages only exist on the new Reddit site. Redirecting them to old
+// Reddit makes old Reddit send the browser back to www.reddit.com, which
+// causes an infinite redirect loop.
+function isUnsupportedOnOldReddit(url) {
+    return url.pathname === '/message/compose' || url.pathname.startsWith('/message/compose/');
+}
+
 function updateLink(url) {
     try {
-        var target = new URL(url);
-        if (target.hostname === 'www.reddit.com' && !isShortLink(target.pathname)) {
+        const target = new URL(url);
+        if (
+            target.hostname === 'www.reddit.com' &&
+            !isShortLink(target.pathname) &&
+            !isUnsupportedOnOldReddit(target)
+        ) {
             target.hostname = 'old.reddit.com';
             return target.href;
-        } else {
-            return url;
         }
+        return url;
     } catch (e) {
         return url;
     }
@@ -77,7 +88,7 @@ function updateLink(url) {
     update_links();
 })();
 
-// --- Redirect if NOT a shortlink ---
+// --- Redirect if NOT a shortlink or a page unavailable on old Reddit ---
 const newUrl = updateLink(window.location.href);
 if (newUrl !== window.location.href) {
     window.location.replace(newUrl);
